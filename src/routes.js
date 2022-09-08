@@ -32,7 +32,7 @@ var routes = [
   {
     path: "/ilanlar",
     name: "İlanları Görüntüle",
-    icon: "ni ni-briefcase-24 text-red",
+    icon: "ni ni-briefcase-24 text-black",
     component: Adverts,
     layout: "/admin"
   },
