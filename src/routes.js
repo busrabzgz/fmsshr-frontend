@@ -18,7 +18,7 @@ var routes = [
   {
     path: "/kullanicilar",
     name: "Kullanıcılar",
-    icon: "ni ni-planet text-blue",
+    icon: "ni ni-planet text-blue" ,
     component: Meetings,
     layout: "/admin"
   },
@@ -38,16 +38,16 @@ var routes = [
   },
   {
     path: "/meetings",
-    name: "Meetings",
-    icon: "ni ni-pin-3 text-orange",
+    name: "Toplantılar",
+    icon: "ni ni-collection",
     component: Meetings,
     layout: "/admin"
   },
   {
     path: "/candidates",
-    name: "Candidates",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Meetings,
+    name: "Adaylar",
+    icon: "ni ni-single-02",
+    component: Candidates,
     layout: "/admin"
   },
   {
