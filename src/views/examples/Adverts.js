@@ -7,9 +7,11 @@ import { useRef, useState, useEffect, useContext } from 'react';
 const GETADVERTS_URL = "http://localhost:8080/adverts";
 
 const Adverts = () => {
-
     const [adverts, setAdverts] = useState([]);
     const [allowEdit, setAllowEdit] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(6);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         checkUser();
@@ -17,6 +19,7 @@ const Adverts = () => {
     }, []);
 
     const getAdverts = async () => {
+        setLoading(true);
         const response = axios.get(GETADVERTS_URL);
 
         let data;
@@ -24,6 +27,7 @@ const Adverts = () => {
             return data = result.data;
         })
         setAdverts(data);
+        setLoading(false);
     }
 
     const checkUser = () => {
@@ -32,6 +36,9 @@ const Adverts = () => {
         }
     }
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstCard = indexOfLastPost - postsPerPage;
+    //const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
     return (
         <>
@@ -44,7 +51,7 @@ const Adverts = () => {
                         <CardBody>
                             <Form>
                                 <h6 className="heading-small text-muted mb-4">
-                                    İlanlar
+                                    İlanlar / Ayrıntıları görüntülemek için ilanın üzerine tıklayınız.
                                 </h6>
                                 <div className="pl-lg-4">
                                     <Row>
@@ -96,13 +103,13 @@ const Adverts = () => {
                                                             <CardTitle
                                                             tag="h2"
                                                             >
-                                                                Java Spring Developer
+                                                                Java Developer
                                                             </CardTitle>
                                                             <hr className="my-1" />
                                                         </div>
                                                         
                                                         <Row>
-                                                        <img className="ml-5" src={require("../../assets/img/cards/java-card.png")} style={{maxWidth: "70%"}} alt="card-png"></img>
+                                                        <img className="ml-7" src={require("../../assets/img/cards/java-card.png")} style={{maxWidth: "50%"}} alt="card-png"></img>
                                                         </Row>
                                                         <Col>
                                                         
@@ -112,16 +119,9 @@ const Adverts = () => {
                              
                                                             
                                                             >
-                                                            Aday Öner
+                                                            Birini Öner
                                                             </Button>
                                                         </Col>
-                                                        <Col>
-                                                            <Button className="btn-danger text-white border-danger btn-block h-100"
-                                                            
-                                                            >
-                                                            Ayrıntıları Görüntüle    
-                                                            </Button>
-                                                            </Col>
                                                         </Row>
                                                         </Col>
                                                     </Row>
