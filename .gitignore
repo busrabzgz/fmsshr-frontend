@@ -1,2 +1,5 @@
-node_modules/
-node_modules/.cache/
+/build
+/node_modules
+package-lock.json
+/build
+.eslintcache
