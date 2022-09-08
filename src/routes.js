@@ -1,10 +1,10 @@
 import Index from "views/Index.js";
 import Profile from "views/examples/Profile.js";
 import Login from "views/examples/Login.js";
-import Tables from "views/examples/Tables.js";
 import Meetings from "views/examples/Meetings.js";
 import RegisterUser from "views/examples/RegisterUser.js"
 import Adverts from "views/examples/Adverts.js";
+import Candidates from "views/examples/Candidates.js";
 
 var routes = [
   //admin
